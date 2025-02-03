@@ -1,11 +1,13 @@
+import Search from "./components/Search";
+
 function App() {
   return (
     <>
-    <div>
-      Sample
-    </div>
+      <div className="flex w-full justify-center">
+        <Search />
+      </div>
     </>
   );
 }
 
-export default App
+export default App;
