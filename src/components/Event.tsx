@@ -47,7 +47,10 @@ const Event = ({
             ))}
           </div>
         </div>
-        <div className="flex-1 flex justify-end items-center pe-5">
+        <div className="flex flex-col flex-1 justify-center items-end pe-2">
+          <button className="px-6 py-2 border border-gray-300 rounded-md bg-gray-950 text-white ">
+            Details
+          </button>
           <button className="px-6 py-2 border border-gray-300 rounded-md bg-gray-950 text-white">
             Join
           </button>
