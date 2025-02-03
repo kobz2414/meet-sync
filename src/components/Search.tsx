@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <div className="flex flex-row max-w-2xl w-full my-4">
+    <div className="flex flex-row">
       <input
         type="text"
         className="p-2 border border-gray-300 rounded-md flex-1"
