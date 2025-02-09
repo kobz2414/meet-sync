@@ -1,7 +1,8 @@
 import { Calendar, Clock, MapPin, User } from "lucide-react";
-import EventTag from "./event-tag";
-import { EventDetails } from "../utils/types";
+import EventTag from "./Event-Tag";
+import { EventDetailsType } from "../utils/types";
 import { useNavigate } from "@tanstack/react-router";
+import Button from "./Button";
 
 const Event = ({
   id,
@@ -13,7 +14,7 @@ const Event = ({
   timeEnd,
   participants,
   tags,
-}: EventDetails) => {
+}: EventDetailsType) => {
   const navigate = useNavigate();
 
   const handlePageDetails = (id: string) => {
@@ -48,19 +49,15 @@ const Event = ({
             </div>
           </div>
           <p className="py-1">{description}</p>
-          <div className="flex flex-row py-2 space-x-1">
+          <div className="flex flex-row flex-wrap py-2 space-x-1">
             {tags.map((tag, i) => (
               <EventTag key={i} tag={tag} />
             ))}
           </div>
         </div>
         <div className="flex md:flex-col flex-row md:justify-start md:items-end items-start md:py-0 pt-4 md:space-y-2 md:space-x-0 space-x-2">
-          <button className="px-6 py-2 border-gray-300 rounded-md bg-gray-950 text-white min-w-30">
-            Join
-          </button>
-          <button className="px-6 py-2 border-gray-300 rounded-md bg-gray-950 text-white min-w-30" onClick={() => handlePageDetails(id)}>
-            Details
-          </button>
+          <Button text="Join" />
+          <Button text="Details" onClick={() => handlePageDetails(id)} />
         </div>
       </div>
     </>
