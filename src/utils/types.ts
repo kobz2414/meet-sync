@@ -1,4 +1,4 @@
-export type EventDetails = {
+export type EventDetailsType = {
   id: string;
   name: string;
   description: string;
@@ -10,6 +10,6 @@ export type EventDetails = {
   tags: string[];
 };
 
-export type Tag = {
+export type TagType = {
   tag: string;
 };
