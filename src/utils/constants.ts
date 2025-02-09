@@ -1,6 +1,6 @@
-import { EventDetails } from "./types";
+import { EventDetailsType } from "./types";
 
-export const testEvents: EventDetails[] = [
+export const testEvents: EventDetailsType[] = [
   {
     id: "1",
     name: "Lorem Ipsum Event",
@@ -11,7 +11,7 @@ export const testEvents: EventDetails[] = [
     timeEnd: "12:00",
     location: "Location 1",
     participants: 10,
-    tags: ["Bembangan", "Party"],
+    tags: ["Bembangan", "Party", "Test", "Sample"],
   },
   {
     id: "2",
