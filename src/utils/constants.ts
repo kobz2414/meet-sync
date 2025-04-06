@@ -11,6 +11,7 @@ export const testEvents: EventDetailsType[] = [
     timeEnd: "12:00",
     location: "Location 1",
     participants: 10,
+    availableSlots: 5,
     tags: ["Bembangan", "Party", "Test", "Sample"],
   },
   {
@@ -22,6 +23,7 @@ export const testEvents: EventDetailsType[] = [
     timeEnd: "12:00",
     location: "Location 2",
     participants: 10,
+    availableSlots: 2,
     tags: ["Test", "Sample"],
   },
 ];
