@@ -7,6 +7,7 @@ export type EventDetailsType = {
   timeStart: string;
   timeEnd: string;
   participants: number;
+  availableSlots: number;
   tags: string[];
 };
 
