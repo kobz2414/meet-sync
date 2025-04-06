@@ -11,10 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as ProfileImport } from './routes/profile'
 import { Route as IndexImport } from './routes/index'
 import { Route as EventDetailsIdImport } from './routes/event-details/$id'
 
 // Create/Update Routes
+
+const ProfileRoute = ProfileImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -39,6 +46,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
     '/event-details/$id': {
       id: '/event-details/$id'
       path: '/event-details/$id'
@@ -53,36 +67,41 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/event-details/$id': typeof EventDetailsIdRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/event-details/$id': typeof EventDetailsIdRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/profile': typeof ProfileRoute
   '/event-details/$id': typeof EventDetailsIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/event-details/$id'
+  fullPaths: '/' | '/profile' | '/event-details/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/event-details/$id'
-  id: '__root__' | '/' | '/event-details/$id'
+  to: '/' | '/profile' | '/event-details/$id'
+  id: '__root__' | '/' | '/profile' | '/event-details/$id'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProfileRoute: typeof ProfileRoute
   EventDetailsIdRoute: typeof EventDetailsIdRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProfileRoute: ProfileRoute,
   EventDetailsIdRoute: EventDetailsIdRoute,
 }
 
@@ -94,14 +113,18 @@ export const routeTree = rootRoute
 {
   "routes": {
     "__root__": {
-      "filePath": "__root.jsx",
+      "filePath": "__root.tsx",
       "children": [
         "/",
+        "/profile",
         "/event-details/$id"
       ]
     },
     "/": {
-      "filePath": "index.jsx"
+      "filePath": "index.tsx"
+    },
+    "/profile": {
+      "filePath": "profile.tsx"
     },
     "/event-details/$id": {
       "filePath": "event-details/$id.tsx"
