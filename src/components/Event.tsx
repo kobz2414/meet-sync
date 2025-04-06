@@ -13,6 +13,7 @@ const Event = ({
   timeStart,
   timeEnd,
   participants,
+  availableSlots,
   tags,
 }: EventDetailsType) => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Event = ({
               </div>
               <div className="flex flex-row items-center py-1">
                 <User size={16} />
-                <p className="ps-1 text-sm">{participants}</p>
+                <p className="ps-1 text-sm">{`${availableSlots}/${participants}`}</p>
               </div>
             </div>
           </div>
