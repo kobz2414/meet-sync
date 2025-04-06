@@ -7,7 +7,7 @@ export const Route = createRootRoute({
 function RootLayout() {
   return (
     <div className="m-4">
-      <div className="flex flex-col max-w-2xl w-full mx-auto">
+      <div className="flex flex-col max-w-xl w-full mx-auto">
         <Outlet />
       </div>
     </div>

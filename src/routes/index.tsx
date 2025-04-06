@@ -1,8 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router';
-import Event from '../components/Event';
-import Search from '../components/Search';
-import NavBar from '../components/NavBar';
-import { testEvents } from '../utils/constants';
+import { createFileRoute } from "@tanstack/react-router";
+import Event from "../components/Event";
+import Search from "../components/Search";
+import NavBar from "../components/NavBar";
+import { testEvents } from "../utils/constants";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -13,7 +13,9 @@ function Home() {
     <>
       <NavBar />
       <div>
-        <p className='flex justify-center text-6xl font-bold pt-4 pb-10'>Welcome Everyone</p>
+        <p className="flex justify-center text-6xl font-bold pt-4 pb-10">
+          Meet Sync
+        </p>
       </div>
       <Search />
       {testEvents.map((event, i) => (
@@ -27,6 +29,7 @@ function Home() {
           timeStart={event.timeStart}
           timeEnd={event.timeEnd}
           participants={event.participants}
+          availableSlots={event.availableSlots}
           tags={event.tags}
         />
       ))}
