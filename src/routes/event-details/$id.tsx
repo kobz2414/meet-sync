@@ -22,8 +22,7 @@ const eventDetail = (label: string, value: string) => {
 const tags = (label: string, tags: string[]) => {
   return (
     <div className="py-1">
-      <p className="text-sm mb-1">{label}</p>
-      <div className="flex flex-row space-x-1 flex-wrap">
+      <div className="flex space-x-1 flex-wrap items-center">
         {tags?.map((tag, i) => {
           return <EventTag key={i} tag={tag} />;
         })}
@@ -33,30 +32,32 @@ const tags = (label: string, tags: string[]) => {
 };
 
 function EventDetails() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { id } = Route.useParams();
   const testEvent: EventDetailsType = testEvents[0];
 
   return (
     <>
       <NavBar />
-      <div className="p-4 sm:grid sm:grid-cols-8 sm:gap-4">
-        <div className="col-span-5">
-          <p className="text-4xl font-bold py-2">{testEvent.name}</p>
-          <p className="py-2">{testEvent.description}</p>
-        </div>
-        <div className="sm:col-span-3  border border-gray-300 rounded-lg p-4 sm:mt-0 mt-4">
-          <div className="grid sm:grid-cols-1 grid-cols-2">
+
+      <div className="p-4">
+        <p className="text-3xl font-bold pb-4">{testEvent.name}</p>
+
+        <div className="border border-gray-300 rounded-lg p-4 my-4">
+          <div className="grid sm:grid-cols-4 grid-cols-2">
             {eventDetail("Location", testEvent.location)}
             {eventDetail("Date", formatDate(testEvent.date))}
             {eventDetail(
               "Time",
               `${testEvent.timeStart} - ${testEvent.timeEnd}`
             )}
-            {eventDetail("Pax", testEvent.participants.toString())}
-            {tags("Tags", testEvent.tags)}
+            {eventDetail("Available Slots", `${testEvent.availableSlots}/${testEvent.participants}`)}
           </div>
           <Button className="mt-4 w-full" text="Join" />
         </div>
+
+        <p className="py-4">{testEvent.description}</p>
+        {tags("Tags", testEvent.tags)}
       </div>
     </>
   );
