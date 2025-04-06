@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <div className="p-4 grid grid-cols-3 items-center">
       <div className="flex justify-start">
-        {canGoBack && (
+        {canGoBack && router.state.location.pathname !== "/" && (
           <button onClick={handleGoBack}>
             <ArrowLeft size={23} />
           </button>
@@ -26,9 +26,11 @@ const NavBar = () => {
       </div>
 
       <div className="flex justify-end">
-        <button onClick={() => router.navigate({ to: "/profile" })}>
-          <User size={23} />
-        </button>
+        {router.state.location.pathname !== "/profile" && (
+          <button onClick={() => router.navigate({ to: "/profile" })}>
+            <User size={23} />
+          </button>
+        )}
       </div>
     </div>
   );
