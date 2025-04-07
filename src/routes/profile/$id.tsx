@@ -1,9 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import NavBar from "../components/NavBar";
+import NavBar from '@/components/NavBar'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute("/profile")({
+export const Route = createFileRoute('/profile/$id')({
   component: Profile,
-});
+})
 
 function Profile() {
   return (
@@ -26,5 +26,5 @@ function Profile() {
         </div>
       </div>
     </div>
-  );
+  )
 }

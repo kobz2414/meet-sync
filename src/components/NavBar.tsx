@@ -27,7 +27,11 @@ const NavBar = () => {
 
       <div className="flex justify-end">
         {router.state.location.pathname !== "/profile" && (
-          <button onClick={() => router.navigate({ to: "/profile" })}>
+          <button
+            onClick={() =>
+              router.navigate({ to: "/profile/$id", params: { id: "45" } }) // Replaced hard coded id with user id
+            }
+          >
             <User size={23} />
           </button>
         )}
