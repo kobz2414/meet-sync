@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, MapPin, User } from "lucide-react";
 import { EventDetailsType } from "../utils/types";
 import { useNavigate } from "@tanstack/react-router";
-import Button from "./Button";
 
 const Event = ({
   id,
@@ -20,7 +20,7 @@ const Event = ({
 
   const handlePageDetails = (id: string) => {
     navigate({ to: "/event-details/$id", params: { id: id } });
-  }
+  };
 
   return (
     <>
@@ -50,7 +50,7 @@ const Event = ({
             </div>
           </div>
           <p className="py-1">{description}</p>
-          <div className="flex flex-row flex-wrap py-2 space-x-1">
+          <div className="flex flex-row flex-wrap pt-4 space-x-1">
             {tags.map((tag, i) => (
               <Badge key={i} variant="outline" className="text-xs">
                 {tag}
@@ -59,8 +59,8 @@ const Event = ({
           </div>
         </div>
         <div className="flex md:flex-col flex-row md:justify-start md:items-end items-start md:py-0 pt-4 md:space-y-2 md:space-x-0 space-x-2">
-          <Button text="Join" />
-          <Button text="Details" onClick={() => handlePageDetails(id)} />
+          <Button className="md:w-full"> Join </Button>
+          <Button onClick={() => handlePageDetails(id)}> Details </Button>
         </div>
       </div>
     </>

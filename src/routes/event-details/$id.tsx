@@ -3,8 +3,8 @@ import { testEvents } from "../../utils/constants";
 import { EventDetailsType } from "../../utils/types";
 import { formatDate } from "../../utils/common";
 import NavBar from "../../components/NavBar";
-import Button from "../../components/Button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/event-details/$id")({
   component: EventDetails,
@@ -24,7 +24,11 @@ const tags = (tags: string[]) => {
     <div className="py-1">
       <div className="flex space-x-1 flex-wrap items-center">
         {tags?.map((tag, i) => {
-          return <Badge key={i} variant="outline" className="text-xs">{tag}</Badge>;
+          return (
+            <Badge key={i} variant="outline" className="text-xs">
+              {tag}
+            </Badge>
+          );
         })}
       </div>
     </div>
@@ -51,9 +55,12 @@ function EventDetails() {
               "Time",
               `${testEvent.timeStart} - ${testEvent.timeEnd}`
             )}
-            {eventDetail("Available Slots", `${testEvent.availableSlots}/${testEvent.participants}`)}
+            {eventDetail(
+              "Available Slots",
+              `${testEvent.availableSlots}/${testEvent.participants}`
+            )}
           </div>
-          <Button className="mt-4 w-full" text="Join" />
+          <Button className="mt-4 w-full">Join</Button>
         </div>
 
         <p className="py-4">{testEvent.description}</p>
