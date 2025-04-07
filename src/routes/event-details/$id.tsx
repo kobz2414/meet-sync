@@ -4,7 +4,7 @@ import { EventDetailsType } from "../../utils/types";
 import { formatDate } from "../../utils/common";
 import NavBar from "../../components/NavBar";
 import Button from "../../components/Button";
-import EventTag from "../../components/Event-Tag";
+import { Badge } from "@/components/ui/badge";
 
 export const Route = createFileRoute("/event-details/$id")({
   component: EventDetails,
@@ -19,12 +19,12 @@ const eventDetail = (label: string, value: string) => {
   );
 };
 
-const tags = (label: string, tags: string[]) => {
+const tags = (tags: string[]) => {
   return (
     <div className="py-1">
       <div className="flex space-x-1 flex-wrap items-center">
         {tags?.map((tag, i) => {
-          return <EventTag key={i} tag={tag} />;
+          return <Badge key={i} variant="outline" className="text-xs">{tag}</Badge>;
         })}
       </div>
     </div>
@@ -57,7 +57,7 @@ function EventDetails() {
         </div>
 
         <p className="py-4">{testEvent.description}</p>
-        {tags("Tags", testEvent.tags)}
+        {tags(testEvent.tags)}
       </div>
     </>
   );

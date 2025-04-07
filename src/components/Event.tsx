@@ -1,5 +1,5 @@
+import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, MapPin, User } from "lucide-react";
-import EventTag from "./Event-Tag";
 import { EventDetailsType } from "../utils/types";
 import { useNavigate } from "@tanstack/react-router";
 import Button from "./Button";
@@ -52,7 +52,9 @@ const Event = ({
           <p className="py-1">{description}</p>
           <div className="flex flex-row flex-wrap py-2 space-x-1">
             {tags.map((tag, i) => (
-              <EventTag key={i} tag={tag} />
+              <Badge key={i} variant="outline" className="text-xs">
+                {tag}
+              </Badge>
             ))}
           </div>
         </div>
